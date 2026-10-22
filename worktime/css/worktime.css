@@ -1,0 +1,65 @@
+/* Modul Worktime – eigene Styles (ergänzend zu den Dolibarr-Klassen) */
+
+.wt-clock-box { display: flex; flex-wrap: wrap; gap: 24px; align-items: stretch; margin: 10px 0 20px 0; }
+.wt-clock-panel { flex: 1 1 320px; padding: 20px; border: 1px solid #ddd; border-radius: 8px; background: #fff; text-align: center; }
+.wt-clock-now { font-size: 2.6em; font-weight: bold; letter-spacing: 1px; margin: 4px 0 2px 0; }
+.wt-clock-date { color: #666; margin-bottom: 14px; }
+
+.wt-status { display: inline-block; padding: 6px 14px; border-radius: 16px; font-weight: bold; margin-bottom: 18px; }
+.wt-status-off, .wt-status-clock_out { background: #eee; color: #555; }
+.wt-status-clock_in { background: #d8f3dc; color: #1b5e20; }
+.wt-status-break { background: #ffe8cc; color: #a64b00; }
+
+.wt-buttons { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; }
+.wt-btn { border: 0; border-radius: 10px; color: #fff; cursor: pointer; font-size: 1.35em; font-weight: bold; min-width: 210px; padding: 22px 28px; box-shadow: 0 3px 6px rgba(0,0,0,.18); transition: transform .08s, opacity .15s; }
+.wt-btn:hover { opacity: .92; }
+.wt-btn:active { transform: scale(.97); }
+.wt-btn[disabled] { opacity: .5; cursor: wait; }
+.wt-btn-clock_in { background: #2e7d32; }
+.wt-btn-clock_out { background: #c62828; }
+.wt-btn-break_start { background: #ef6c00; }
+.wt-btn-break_end { background: #1565c0; }
+.wt-hidden { display: none !important; }
+
+.wt-message { min-height: 1.4em; margin-top: 14px; font-weight: bold; }
+.wt-message.wt-ok { color: #2e7d32; }
+.wt-message.wt-err { color: #c62828; }
+
+.wt-kpis { display: grid; grid-template-columns: repeat(2, minmax(130px, 1fr)); gap: 12px; }
+.wt-kpi { border: 1px solid #e3e3e3; border-radius: 8px; padding: 12px; background: #fafafa; }
+.wt-kpi-label { color: #666; font-size: .9em; }
+.wt-kpi-value { font-size: 1.6em; font-weight: bold; margin-top: 4px; }
+
+.wt-positive { color: #2e7d32; }
+.wt-negative { color: #c62828; }
+.wt-neutral { color: #555; }
+
+.wt-timeline { list-style: none; margin: 0; padding: 0 0 0 18px; border-left: 3px solid #ccc; text-align: left; }
+.wt-timeline li { position: relative; padding: 6px 0 6px 14px; }
+.wt-timeline li::before { content: ''; position: absolute; left: -26px; top: 10px; width: 13px; height: 13px; border-radius: 50%; background: #999; border: 2px solid #fff; }
+.wt-timeline li.wt-tl-clock_in::before { background: #2e7d32; }
+.wt-timeline li.wt-tl-clock_out::before { background: #c62828; }
+.wt-timeline li.wt-tl-break_start::before { background: #ef6c00; }
+.wt-timeline li.wt-tl-break_end::before { background: #1565c0; }
+.wt-tl-time { font-weight: bold; display: inline-block; min-width: 55px; }
+.wt-tl-note { color: #777; font-style: italic; }
+
+/* Berichte */
+tr.wt-row-weekend td { background: #f4f4f4 !important; color: #888; }
+tr.wt-row-holiday td { background: #eef3ff !important; }
+tr.wt-row-vacation td { background: #e8f5e9 !important; }
+tr.wt-row-sick td { background: #fdecea !important; }
+tr.wt-row-other td { background: #fff8e1 !important; }
+tr.wt-row-today td { font-weight: bold; }
+.wt-badge { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: .85em; color: #fff; }
+.wt-badge-vacation { background: #43a047; }
+.wt-badge-sick { background: #e53935; }
+.wt-badge-other { background: #f9a825; }
+.wt-badge-holiday { background: #3949ab; }
+.wt-badge-pending { background: #9e9e9e; }
+.wt-badge-approved { background: #43a047; }
+.wt-badge-rejected { background: #e53935; }
+.wt-badge-warning { background: #fb8c00; }
+.wt-nav { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin: 8px 0 14px 0; }
+.wt-nav .wt-nav-title { font-size: 1.2em; font-weight: bold; min-width: 260px; text-align: center; }
+.wt-summary { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 10px; margin: 14px 0; }
