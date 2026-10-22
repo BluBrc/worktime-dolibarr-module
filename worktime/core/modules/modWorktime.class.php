@@ -40,8 +40,8 @@ class modWorktime extends DolibarrModules
                 $this->family = 'hr';
                 $this->module_position = 90;
                 $this->name = preg_replace('/^mod/i', '', get_class($this));
-                $this->description = 'Arbeitszeiterfassung: Kommen/Gehen/Pause, Urlaub, Krankheit, Arbeitszeitkonto und Auswertungen';
-                $this->descriptionlong = 'Stempeluhr direkt in Dolibarr mit Zuordnung zum angemeldeten Benutzer, Urlaubs- und Krankheitsverwaltung, Plus-/Minusstundenkonto sowie Wochen- und Monatsauswertungen.';
+                $this->description = 'Time tracking: clock in/out/break, vacation, sickness, work-time account and reports';
+                $this->descriptionlong = 'Time clock inside Dolibarr linked to the logged-in user, vacation and sick-leave management, plus/minus time account and weekly/monthly reports.';
                 $this->editor_name = 'Worktime';
                 $this->editor_url = '';
                 $this->version = '1.2.0';
@@ -78,12 +78,12 @@ class modWorktime extends DolibarrModules
 
                 // Konstanten (Standardwerte), werden bei Aktivierung angelegt
                 $this->const = array(
-                        1 => array('WORKTIME_DEFAULT_WEEKLY_HOURS', 'chaine', '40', 'Standard-Wochenstunden', 0, 'current', 0),
-                        2 => array('WORKTIME_DEFAULT_VACATION_DAYS', 'chaine', '30', 'Standard-Urlaubstage pro Jahr', 0, 'current', 0),
-                        3 => array('WORKTIME_HOLIDAY_STATE', 'chaine', 'CY', 'Feiertagsregel (CY = Zypern)', 0, 'current', 0),
-                        4 => array('WORKTIME_HOLIDAYS_MANUAL', 'chaine', '', 'Manuelle Feiertage (eine Zeile pro Datum JJJJ-MM-TT)', 0, 'current', 0),
-                        5 => array('WORKTIME_VACATION_CARRYOVER_DATE', 'chaine', '03-31', 'Stichtag Resturlaub-Übertrag (MM-TT)', 0, 'current', 0),
-                        6 => array('WORKTIME_SICK_CERT_DAYS', 'chaine', '3', 'Attestpflicht ab X Krankheitstagen', 0, 'current', 0),
+                        1 => array('WORKTIME_DEFAULT_WEEKLY_HOURS', 'chaine', '40', 'Default weekly hours', 0, 'current', 0),
+                        2 => array('WORKTIME_DEFAULT_VACATION_DAYS', 'chaine', '30', 'Default vacation days per year', 0, 'current', 0),
+                        3 => array('WORKTIME_HOLIDAY_STATE', 'chaine', 'CY', 'Holiday rule (CY = Cyprus)', 0, 'current', 0),
+                        4 => array('WORKTIME_HOLIDAYS_MANUAL', 'chaine', '', 'Manual holidays (one line per date YYYY-MM-DD)', 0, 'current', 0),
+                        5 => array('WORKTIME_VACATION_CARRYOVER_DATE', 'chaine', '03-31', 'Vacation carry-over deadline (MM-DD)', 0, 'current', 0),
+                        6 => array('WORKTIME_SICK_CERT_DAYS', 'chaine', '3', 'Certificate required from X sick days', 0, 'current', 0),
                 );
 
                 $this->tabs = array();
@@ -98,7 +98,7 @@ class modWorktime extends DolibarrModules
                 $r = 0;
 
                 $this->rights[$r][0] = $this->numero + $r + 1;
-                $this->rights[$r][1] = 'Eigene Arbeitszeiten und Auswertungen ansehen';
+                $this->rights[$r][1] = 'View own working times and reports';
                 $this->rights[$r][2] = 'r';
                 $this->rights[$r][3] = 1; // standardmäßig für neue Benutzer aktiv
                 $this->rights[$r][4] = 'read';
@@ -106,7 +106,7 @@ class modWorktime extends DolibarrModules
                 $r++;
 
                 $this->rights[$r][0] = $this->numero + $r + 1;
-                $this->rights[$r][1] = 'Stempeln (Kommen/Gehen/Pause) und Abwesenheiten beantragen';
+                $this->rights[$r][1] = 'Clock in/out/break and request absences';
                 $this->rights[$r][2] = 'w';
                 $this->rights[$r][3] = 1;
                 $this->rights[$r][4] = 'write';
@@ -114,7 +114,7 @@ class modWorktime extends DolibarrModules
                 $r++;
 
                 $this->rights[$r][0] = $this->numero + $r + 1;
-                $this->rights[$r][1] = 'Verwaltung: alle Zeiten sehen/korrigieren, Anträge genehmigen, Einstellungen';
+                $this->rights[$r][1] = 'Administration: view/correct all times, approve requests, settings';
                 $this->rights[$r][2] = 'w';
                 $this->rights[$r][3] = 0;
                 $this->rights[$r][4] = 'admin';

@@ -1,8 +1,8 @@
 # worktime-dolibarr-module
 
-Zeiterfassungsmodul für Dolibarr 23+ (Deutsch/English UI): Kommen/Gehen/Pause, Urlaubs- und Krankheitsverwaltung, Arbeitszeitkonto sowie Wochen- und Monatsauswertungen.
+Time-tracking module for Dolibarr 23+ (German/English UI): clock in/out/break, vacation and sick-leave management, work-time account, and weekly/monthly reports.
 
-The module itself lives in [`worktime/`](worktime/) — see [`worktime/README.md`](worktime/README.md) for features, installation and configuration (German).
+The module itself lives in [`worktime/`](worktime/) — see [`worktime/README.md`](worktime/README.md) for features, installation and configuration.
 
 ## Install
 

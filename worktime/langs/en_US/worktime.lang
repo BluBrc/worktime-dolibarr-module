@@ -177,3 +177,24 @@ WorktimeErrorNotFound=Record not found.
 WorktimeErrorWeeklyHours=Invalid weekly hours (0–99).
 WorktimeErrorVacationDays=Invalid number of vacation days (0–365).
 WorktimeErrorCarryoverDate=Invalid deadline (format MM-DD).
+
+# Holiday rules
+WorktimeStateCY=Cyprus
+WorktimeStateMANUAL=No automatic holidays (manual list only)
+WorktimeHolidayGeneric=Holiday
+WorktimeHolidayNewYear=New Year's Day (Πρωτοχρονιά)
+WorktimeHolidayEpiphany=Epiphany (Θεοφάνια)
+WorktimeHolidayGreekIndependence=Greek Independence Day (25η Μαρτίου)
+WorktimeHolidayEokaDay=EOKA Day / Cyprus National Day (1η Απριλίου)
+WorktimeHolidayLabourDay=Labour Day (Πρωτομαγιά)
+WorktimeHolidayAssumption=Assumption of Mary (Κοίμηση Θεοτόκου)
+WorktimeHolidayCyprusIndependence=Cyprus Independence Day (1η Οκτωβρίου)
+WorktimeHolidayOchiDay=Ohi Day / Greek National Day (28η Οκτωβρίου)
+WorktimeHolidayChristmas=Christmas (Χριστούγεννα)
+WorktimeHolidayBoxingDay=Second Day of Christmas (Σύναξη Θεοτόκου)
+WorktimeHolidayCleanMonday=Clean Monday / Kathara Deftera (Καθαρά Δευτέρα)
+WorktimeHolidayOrthodoxGoodFriday=Orthodox Good Friday (Μεγάλη Παρασκευή)
+WorktimeHolidayHolySaturday=Holy Saturday (Μεγάλο Σάββατο)
+WorktimeHolidayOrthodoxEasterSunday=Orthodox Easter Sunday (Κυριακή του Πάσχα)
+WorktimeHolidayEasterMonday=Easter Monday (Δευτέρα του Πάσχα)
+WorktimeHolidayKataklysmos=Kataklysmos / Whit Monday (Δευτέρα του Αγίου Πνεύματος)

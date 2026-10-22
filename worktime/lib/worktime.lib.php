@@ -15,9 +15,10 @@
  */
 function worktime_get_states()
 {
+        global $langs;
         return array(
-                'CY'     => 'Zypern',
-                'MANUAL' => 'Keine automatischen Feiertage (nur manuelle Liste)',
+                'CY'     => $langs->trans('WorktimeStateCY'),
+                'MANUAL' => $langs->trans('WorktimeStateMANUAL'),
         );
 }
 
@@ -68,7 +69,7 @@ function worktime_date_add($date, $days)
  */
 function worktime_get_holidays($year, $state = null)
 {
-        global $conf;
+        global $conf, $langs;
         static $cache = array();
 
         $year = (int) $year;
@@ -86,30 +87,30 @@ function worktime_get_holidays($year, $state = null)
                 $easter = worktime_orthodox_easter_date($year);
 
                 // ── Feste gesetzliche Feiertage Zyperns ──────────────────────────────
-                $h[$year.'-01-01'] = 'Neujahr (Πρωτοχρονιά)';
-                $h[$year.'-01-06'] = 'Erscheinung des Herrn (Θεοφάνια)';
-                $h[$year.'-03-25'] = 'Griechischer Unabhängigkeitstag (25η Μαρτίου)';
-                $h[$year.'-04-01'] = 'EOKA-Tag / Nationaler Feiertag Zyperns (1η Απριλίου)';
-                $h[$year.'-05-01'] = 'Tag der Arbeit (Πρωτομαγιά)';
-                $h[$year.'-08-15'] = 'Mariä Himmelfahrt (Κοίμηση Θεοτόκου)';
-                $h[$year.'-10-01'] = 'Unabhängigkeitstag Zyperns (1η Οκτωβρίου)';
-                $h[$year.'-10-28'] = 'Ochi-Tag / Griechischer Nationalfeiertag (28η Οκτωβρίου)';
-                $h[$year.'-12-25'] = 'Weihnachten (Χριστούγεννα)';
-                $h[$year.'-12-26'] = '2. Weihnachtstag (Σύναξη Θεοτόκου)';
+                $h[$year.'-01-01'] = $langs->trans('WorktimeHolidayNewYear');
+                $h[$year.'-01-06'] = $langs->trans('WorktimeHolidayEpiphany');
+                $h[$year.'-03-25'] = $langs->trans('WorktimeHolidayGreekIndependence');
+                $h[$year.'-04-01'] = $langs->trans('WorktimeHolidayEokaDay');
+                $h[$year.'-05-01'] = $langs->trans('WorktimeHolidayLabourDay');
+                $h[$year.'-08-15'] = $langs->trans('WorktimeHolidayAssumption');
+                $h[$year.'-10-01'] = $langs->trans('WorktimeHolidayCyprusIndependence');
+                $h[$year.'-10-28'] = $langs->trans('WorktimeHolidayOchiDay');
+                $h[$year.'-12-25'] = $langs->trans('WorktimeHolidayChristmas');
+                $h[$year.'-12-26'] = $langs->trans('WorktimeHolidayBoxingDay');
 
                 // ── Bewegliche Feiertage (Orthodoxes Ostern) ─────────────────────────
                 // Kathara Deftera (Reiner Montag): 48 Tage vor Ostern
-                $h[worktime_date_add($easter, -48)] = 'Reiner Montag / Kathara Deftera (Καθαρά Δευτέρα)';
+                $h[worktime_date_add($easter, -48)] = $langs->trans('WorktimeHolidayCleanMonday');
                 // Orthodoxer Karfreitag
-                $h[worktime_date_add($easter, -2)]  = 'Orthodoxer Karfreitag (Μεγάλη Παρασκευή)';
+                $h[worktime_date_add($easter, -2)]  = $langs->trans('WorktimeHolidayOrthodoxGoodFriday');
                 // Heiliger Samstag
-                $h[worktime_date_add($easter, -1)]  = 'Heiliger Samstag (Μεγάλο Σάββατο)';
+                $h[worktime_date_add($easter, -1)]  = $langs->trans('WorktimeHolidayHolySaturday');
                 // Ostersonntag
-                $h[$easter]                          = 'Orthodoxer Ostersonntag (Κυριακή του Πάσχα)';
+                $h[$easter]                          = $langs->trans('WorktimeHolidayOrthodoxEasterSunday');
                 // Ostermontag
-                $h[worktime_date_add($easter,  1)]  = 'Ostermontag (Δευτέρα του Πάσχα)';
+                $h[worktime_date_add($easter,  1)]  = $langs->trans('WorktimeHolidayEasterMonday');
                 // Kataklysmos / Pfingstmontag: 50 Tage nach Ostern
-                $h[worktime_date_add($easter, 50)]  = 'Kataklysmos / Pfingstmontag (Δευτέρα του Αγίου Πνεύματος)';
+                $h[worktime_date_add($easter, 50)]  = $langs->trans('WorktimeHolidayKataklysmos');
         }
 
         // Manuelle Feiertage: eine Zeile pro Eintrag, Format "JJJJ-MM-TT Bezeichnung"
@@ -122,11 +123,11 @@ function worktime_get_holidays($year, $state = null)
                 }
                 if (preg_match('/^(\d{4})-(\d{2})-(\d{2})\s*(.*)$/', $line, $m)) {
                         if ((int) $m[1] == $year && checkdate((int) $m[2], (int) $m[3], (int) $m[1])) {
-                                $h[$m[1].'-'.$m[2].'-'.$m[3]] = ($m[4] !== '' ? $m[4] : 'Feiertag');
+                                $h[$m[1].'-'.$m[2].'-'.$m[3]] = ($m[4] !== '' ? $m[4] : $langs->trans('WorktimeHolidayGeneric'));
                         }
                 } elseif (preg_match('/^(\d{2})-(\d{2})\s*(.*)$/', $line, $m)) {
                         if (checkdate((int) $m[1], (int) $m[2], $year)) {
-                                $h[$year.'-'.$m[1].'-'.$m[2]] = ($m[3] !== '' ? $m[3] : 'Feiertag');
+                                $h[$year.'-'.$m[1].'-'.$m[2]] = ($m[3] !== '' ? $m[3] : $langs->trans('WorktimeHolidayGeneric'));
                         }
                 }
         }

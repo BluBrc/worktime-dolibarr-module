@@ -182,3 +182,24 @@ WorktimeErrorNotFound=Datensatz nicht gefunden.
 WorktimeErrorWeeklyHours=Ungültige Wochenstunden (0–99).
 WorktimeErrorVacationDays=Ungültige Anzahl Urlaubstage (0–365).
 WorktimeErrorCarryoverDate=Ungültiger Stichtag (Format MM-TT).
+
+# Feiertagsregeln / Holiday rules
+WorktimeStateCY=Zypern
+WorktimeStateMANUAL=Keine automatischen Feiertage (nur manuelle Liste)
+WorktimeHolidayGeneric=Feiertag
+WorktimeHolidayNewYear=Neujahr (Πρωτοχρονιά)
+WorktimeHolidayEpiphany=Erscheinung des Herrn (Θεοφάνια)
+WorktimeHolidayGreekIndependence=Griechischer Unabhängigkeitstag (25η Μαρτίου)
+WorktimeHolidayEokaDay=EOKA-Tag / Nationaler Feiertag Zyperns (1η Απριλίου)
+WorktimeHolidayLabourDay=Tag der Arbeit (Πρωτομαγιά)
+WorktimeHolidayAssumption=Mariä Himmelfahrt (Κοίμηση Θεοτόκου)
+WorktimeHolidayCyprusIndependence=Unabhängigkeitstag Zyperns (1η Οκτωβρίου)
+WorktimeHolidayOchiDay=Ochi-Tag / Griechischer Nationalfeiertag (28η Οκτωβρίου)
+WorktimeHolidayChristmas=Weihnachten (Χριστούγεννα)
+WorktimeHolidayBoxingDay=2. Weihnachtstag (Σύναξη Θεοτόκου)
+WorktimeHolidayCleanMonday=Reiner Montag / Kathara Deftera (Καθαρά Δευτέρα)
+WorktimeHolidayOrthodoxGoodFriday=Orthodoxer Karfreitag (Μεγάλη Παρασκευή)
+WorktimeHolidayHolySaturday=Heiliger Samstag (Μεγάλο Σάββατο)
+WorktimeHolidayOrthodoxEasterSunday=Orthodoxer Ostersonntag (Κυριακή του Πάσχα)
+WorktimeHolidayEasterMonday=Ostermontag (Δευτέρα του Πάσχα)
+WorktimeHolidayKataklysmos=Kataklysmos / Pfingstmontag (Δευτέρα του Αγίου Πνεύματος)
