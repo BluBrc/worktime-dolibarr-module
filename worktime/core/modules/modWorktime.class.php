@@ -44,7 +44,7 @@ class modWorktime extends DolibarrModules
                 $this->descriptionlong = 'Time clock inside Dolibarr linked to the logged-in user, vacation and sick-leave management, plus/minus time account and weekly/monthly reports.';
                 $this->editor_name = 'Worktime';
                 $this->editor_url = '';
-                $this->version = '1.2.0';
+                $this->version = '1.3.0';
                 $this->const_name = 'MAIN_MODULE_'.strtoupper($this->name);
                 $this->picto = 'worktime@worktime';
 

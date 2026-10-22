@@ -8,6 +8,8 @@ The module itself lives in [`worktime/`](worktime/) — see [`worktime/README.md
 
 Copy (or clone) the `worktime/` directory into `<dolibarr>/htdocs/custom/`, then enable the module under **Home → Setup → Modules**.
 
+Alternative: download the zip file from the releases page and install it via the Dolibarr module installer.
+
 ## License
 
 GPL-3.0-or-later — see [LICENSE](LICENSE).

@@ -1,6 +1,6 @@
 # Dolibarr module "Time Tracking" (worktime)
 
-Version 1.2.0 · for **Dolibarr 23.0 (tested)** · PHP 8.1+ · module number 500210
+Version 1.3.0 · for **Dolibarr 23.0 (tested)** · PHP 8.1+ · module number 500210
 
 With this module employees record their working time directly inside Dolibarr — no separate tool needed. The UI is fully translated into German and English and follows each user's Dolibarr profile language.
 
@@ -20,7 +20,7 @@ With this module employees record their working time directly inside Dolibarr �
 ### Option A – Upload via the Dolibarr interface
 1. Log in as administrator.
 2. Open **Home → Setup → Modules/Applications** and switch to the **"Deploy external module"** tab.
-3. Upload the file `worktime-1.2.0.zip`.
+3. Upload the file `worktime-1.3.0.zip`.
    (This requires `$dolibarr_main_document_root_alt` in `conf/conf.php` to point to `htdocs/custom`, which the default installation already does.)
 4. Then activate the module (see below).
 
@@ -28,7 +28,7 @@ With this module employees record their working time directly inside Dolibarr �
 1. Unpack the ZIP so the `worktime` folder sits at: `<dolibarr>/htdocs/custom/worktime/`
    ```bash
    cd /path/to/dolibarr/htdocs/custom
-   unzip worktime-1.2.0.zip
+   unzip worktime-1.3.0.zip
    chown -R www-data:www-data worktime   # adjust to your web server user
    ```
 2. In `conf/conf.php` check that the custom directory is active:
@@ -88,11 +88,14 @@ New users get *read* and *write* by default. *admin* should only be given to HR 
 - Integer parameters are read via `GETPOSTINT()`.
 - The database column `llx_user.statut` remains unchanged in the SQL queries because that is still its name in Dolibarr 23 (only the PHP attribute is called `$user->status`).
 
-## Changes in version 1.2.0 (timezones & i18n)
+## Changes in version 1.2.0 (timezones)
 
 - Fixed: clock in/out/break times were stored and displayed in the PHP server timezone instead of the user's timezone (on servers with `date.timezone=UTC` all times were off by the offset).
 - `entry_time` is stored explicitly as UTC; display and day boundaries (today, week/month boundaries) use the logged-in user's timezone via Dolibarr's `tzuserrel` mechanism.
-- All remaining hardcoded German UI strings (holiday names, holiday-rule labels, module descriptor texts) were moved into the language files; German and English are now fully selectable per user.
+
+## Changes in version 1.3.0 (i18n)
+
+- All remaining hardcoded German UI strings (holiday names, holiday-rule labels, module descriptor texts) were moved into the language files; German and English are now fully selectable per user — the module follows each user's Dolibarr profile language.
 
 ## Directory structure
 
